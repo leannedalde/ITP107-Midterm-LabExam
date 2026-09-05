@@ -34,6 +34,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  String _gestureOutput = 'Tap, double tap, or long press "Click Me".';
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -231,24 +233,37 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
               GestureDetector(
                 onTap: () {
+                  const message = 'Hello World!';
                   debugPrint('=================================================');
                   debugPrint('GESTURE EVENT     : Single Tap');
-                  debugPrint('OUTPUT            : Hello World!');
+                  debugPrint('OUTPUT            : $message');
                   debugPrint('=================================================');
+                  setState(() {
+                    _gestureOutput = 'Single Tap\n$message';
+                  });
                 },
                 onDoubleTap: () {
+                  const courseCode = 'ITP107';
+                  const description = 'Application Development and '
+                      'Emerging Technologies (Mobile Application Development)';
                   debugPrint('=================================================');
                   debugPrint('GESTURE EVENT     : Double Tap');
-                  debugPrint('COURSE CODE       : ITP107');
-                  debugPrint('DESCRIPTION       : Application Development and '
-                      'Emerging Technologies (Mobile Application Development)');
+                  debugPrint('COURSE CODE       : $courseCode');
+                  debugPrint('DESCRIPTION       : $description');
                   debugPrint('=================================================');
+                  setState(() {
+                    _gestureOutput = 'Double Tap\n$courseCode - $description';
+                  });
                 },
                 onLongPress: () {
+                  const fullName = 'Leanne Janelle B. Dalde';
                   debugPrint('=================================================');
                   debugPrint('GESTURE           : Long Press');
-                  debugPrint('FULL NAME         : Leanne Janelle B. Dalde');
+                  debugPrint('FULL NAME         : $fullName');
                   debugPrint('=================================================');
+                  setState(() {
+                    _gestureOutput = 'Long Press\n$fullName';
+                  });
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(vertical: 16),
@@ -273,6 +288,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
                     ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: const Color(0xFF403D88).withOpacity(0.08),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: const Color(0xFF403D88).withOpacity(0.2),
+                  ),
+                ),
+                child: Text(
+                  _gestureOutput,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    color: Color(0xFF403D88),
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
