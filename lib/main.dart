@@ -44,8 +44,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     super.dispose();
   }
 
-
-  // Login button -> validates fields, then shows success or error dialog
   void _handleLogin() {
     debugPrint('[BUTTON EVENT]    : Login button pressed');
 
@@ -233,36 +231,33 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
               GestureDetector(
                 onTap: () {
-                  const message = 'Hello World!';
                   debugPrint('=================================================');
                   debugPrint('GESTURE EVENT     : Single Tap');
-                  debugPrint('OUTPUT            : $message');
+                  debugPrint('OUTPUT            : Hello World!');
                   debugPrint('=================================================');
                   setState(() {
-                    _gestureOutput = 'Single Tap\n$message';
+                    _gestureOutput = 'Single Tap\nHello World!';
                   });
                 },
                 onDoubleTap: () {
-                  const courseCode = 'ITP107';
-                  const description = 'Application Development and '
-                      'Emerging Technologies (Mobile Application Development)';
                   debugPrint('=================================================');
                   debugPrint('GESTURE EVENT     : Double Tap');
-                  debugPrint('COURSE CODE       : $courseCode');
-                  debugPrint('DESCRIPTION       : $description');
+                  debugPrint('COURSE CODE       : ITP107');
+                  debugPrint('DESCRIPTION       : Application Development and '
+                      'Emerging Technologies (Mobile Application Development)');
                   debugPrint('=================================================');
                   setState(() {
-                    _gestureOutput = 'Double Tap\n$courseCode - $description';
+                    _gestureOutput =
+                        'Double Tap\nITP107 - Application Development and Emerging Technologies (Mobile Application Development)';
                   });
                 },
                 onLongPress: () {
-                  const fullName = 'Leanne Janelle B. Dalde';
                   debugPrint('=================================================');
                   debugPrint('GESTURE           : Long Press');
-                  debugPrint('FULL NAME         : $fullName');
+                  debugPrint('FULL NAME         : Leanne Janelle B. Dalde');
                   debugPrint('=================================================');
                   setState(() {
-                    _gestureOutput = 'Long Press\n$fullName';
+                    _gestureOutput = 'Long Press\nLeanne Janelle B. Dalde';
                   });
                 },
                 child: Container(
